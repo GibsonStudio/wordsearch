@@ -1,0 +1,59 @@
+
+
+body {
+  font-family: "Arial";
+}
+
+
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+#grid_container {
+  border: 2px solid #e2e2e2;
+  margin: auto;
+  position: relative;
+}
+
+
+.tile {
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+  border: 1px solid #e2e2e2;
+  text-align: center;
+}
+
+
+.tileSelected {
+  background-color: #F9423A;
+}
+
+
+.tile-found {
+  background-color: #00C389;
+}
+
+#words-list {
+  width:200px; margin:auto; margin-top:40px;
+  border:1px solid #e2e2e2;
+}
+
+
+.word-in-list {
+  text-align:center; padding:4px;
+}
+
+
+.word-found {
+  text-decoration: line-through;
+  color:#e2e2e2;
+}
