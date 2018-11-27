@@ -1,13 +1,13 @@
 
-var tilesX = 10;
-var tilesY = 10;
+var tilesX = 11;
+var tilesY = 11;
 var tileSize = 40;
 var letters = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnoprstuyaeilmnostaeioue';
 var grid = [];
 var words = [];
 
 var possibleWords = ['gibson', 'fender', 'sea', 'cat', 'guitar', 'house', 'mouse', 'car', 'tree', 'first', 'blue', 'metal', 'black', 'master', 'puppet', 'load', 'magnetic', 'printer', 'alice', 'computer', 'phone', 'fish', 'chips', 'sauce', 'florence', 'football', 'water', 'bird', 'inbox', 'email', 'radio', 'warrior', 'desk', 'bottle', 'justice', 'jelly', 'stick', 'nail', 'tooth', 'pen', 'table', 'playstation', 'donkey', 'marshall', 'pedal', 'speaker', 'potter', 'harry', 'moorlands'];
-var wordCount = 12;
+var wordCount = 20;
 
 
 iniWords();
@@ -34,9 +34,17 @@ function iniWords ()
 
   }
 
+  words.sort(sortWords);
+
 }
 
 
+function sortWords (a, b)
+{
+  if (a.text < b.text) { return -1; }
+  if (a.text > b.text) { return 1; }
+  return 0;
+}
 
 
 
@@ -75,11 +83,27 @@ function addWordsToScreen ()
 
   }
 
+  updateInfo();
   $('#words-list').html(html);
 
 }
 
 
+
+function updateInfo ()
+{
+  var wordsInGrid = 0;
+  var wordsFound = 0;
+
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].inGrid) { wordsInGrid++; }
+    if (words[i].found) { wordsFound++; }
+  }
+
+  var toFind = wordsInGrid - wordsFound;
+  $('#info').html(toFind + ' to find');
+
+}
 
 
 function checkWord (tileObject)
@@ -116,6 +140,8 @@ function checkWord (tileObject)
     }
 
   }
+
+  updateInfo();
 
   //cross out word in list
   $('#word-' + tileObject.wordIndex).addClass('word-found');

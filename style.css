@@ -42,8 +42,14 @@ body {
   background-color: #00C389;
 }
 
+#info {
+  width:200px; margin:auto; margin-top:20px;
+  border:1px solid #e2e2e2; text-align:center; padding:4px;
+  font-size:14px; color:#666666;
+}
+
 #words-list {
-  width:200px; margin:auto; margin-top:40px;
+  width:200px; margin:auto; margin-top:20px;
   border:1px solid #e2e2e2;
 }
 
